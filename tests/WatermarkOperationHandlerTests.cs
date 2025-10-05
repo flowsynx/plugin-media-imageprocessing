@@ -11,7 +11,7 @@ namespace FlowSynx.Plugins.Media.ImageProcessing.UnitTests
         {
             var handler = new WatermarkOperationHandler();
             using var image = new Image<SixLabors.ImageSharp.PixelFormats.Rgba32>(10, 10);
-            var param = new InputParameter { WatermarkText = "Test" };
+            var param = new InputParameter { WatermarkText = "Test",  };
             handler.Handle(image, param);
             // No exception means success
         }

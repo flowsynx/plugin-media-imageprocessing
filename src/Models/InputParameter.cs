@@ -11,6 +11,10 @@ internal class InputParameter
     public int Width { get; set; }
     public int Height { get; set; }
 
+    // Crop / Watermark
+    public int Top { get; set; } = 10;
+    public int Left { get; set; } = 10;
+
     // Rotate
     public float Angle { get; set; }
 
@@ -25,6 +29,9 @@ internal class InputParameter
 
     // Watermark
     public string WatermarkText { get; set; } = string.Empty;
+    public string WatermarkFontName { get; set; } = string.Empty;
+    public int WatermarkFontSize { get; set; } = 24;
+    public string WatermarkColor { get; set; } = "#FFFFFF";
 
     public string FromColor { get; set; } = string.Empty;
     public string ToColor { get; set; } = string.Empty;

@@ -11,6 +11,12 @@ internal class CropOperationHandler : IImageOperationHandler
         if (parameter.Width == 0 || parameter.Height == 0)
             throw new ArgumentException("Crop requires positive Width and Height.");
 
-        image.Mutate(x => x.Crop(new Rectangle(0, 0, parameter.Width, parameter.Height)));
+        if (parameter.Top < 0)
+            throw new ArgumentException("Crop location top must be zero or a positive value.");
+
+        if (parameter.Left < 0)
+            throw new ArgumentException("Crop location left must be zero or a positive value.");
+
+        image.Mutate(x => x.Crop(new Rectangle(parameter.Left, parameter.Top, parameter.Width, parameter.Height)));
     }
 }
