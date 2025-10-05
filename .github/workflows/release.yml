@@ -37,7 +37,7 @@ jobs:
         run: dotnet build --configuration Release /p:Version='${{ inputs.rel_version }}' --no-restore
 
       - name: Run tests
-        run: dotnet test --configuration Release /p:Version='${{ inputs.rel_version }}' --no-build
+        run: dotnet test --configuration Release /p:Version='${{ inputs.rel_version }}'
 
       - name: Publish project
         run: dotnet publish src/FlowSynx.Plugins.Media.ImageProcessing.csproj -c Release -o "${{ env.PUBLISH_DIR }}"
