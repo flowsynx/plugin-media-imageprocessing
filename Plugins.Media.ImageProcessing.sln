@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36429.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowSynx.Plugins.Media.ImageProcessing", "src\FlowSynx.Plugins.Media.ImageProcessing.csproj", "{5B66A979-3DF6-4F70-822B-A5A09F652344}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BA6434BF-7A08-413B-9837-4E2D8B55404A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowSynx.Plugins.Media.ImageProcessing.UnitTests", "tests\FlowSynx.Plugins.Media.ImageProcessing.UnitTests.csproj", "{24E8E7D4-FF5F-4199-B608-345BFE19EDEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B66A979-3DF6-4F70-822B-A5A09F652344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B66A979-3DF6-4F70-822B-A5A09F652344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B66A979-3DF6-4F70-822B-A5A09F652344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B66A979-3DF6-4F70-822B-A5A09F652344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24E8E7D4-FF5F-4199-B608-345BFE19EDEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24E8E7D4-FF5F-4199-B608-345BFE19EDEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24E8E7D4-FF5F-4199-B608-345BFE19EDEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24E8E7D4-FF5F-4199-B608-345BFE19EDEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5B66A979-3DF6-4F70-822B-A5A09F652344} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{24E8E7D4-FF5F-4199-B608-345BFE19EDEA} = {BA6434BF-7A08-413B-9837-4E2D8B55404A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFD8BFCD-F3B3-4719-BF4B-8A7E38F6AD85}
+	EndGlobalSection
+EndGlobal

@@ -1,8 +1,10 @@
-# Image Processing Plugin
+## Image Processing Plugin
 
 The **Image Processing Plugin** is a built-in, plug-and-play integration for the FlowSynx automation engine. It enables performing common image processing operations (resize, rotate, grayscale, crop, etc.) within workflows, with no custom coding required.
 
 This plugin is automatically installed by the FlowSynx engine when selected in the workflow builder. It is not intended for standalone developer usage outside the FlowSynx platform.
+
+---
 
 ## Purpose
 
@@ -21,6 +23,8 @@ The Image Processing Plugin allows FlowSynx users to:
 
 It integrates seamlessly into FlowSynx no-code/low-code workflows for media processing and transformation tasks.
 
+---
+
 ## Supported Operations
 
 - **resize**: Resize the image to the specified width and height.
@@ -36,6 +40,8 @@ It integrates seamlessly into FlowSynx no-code/low-code workflows for media proc
 - **watermark**: Add a text watermark to the image.
 - **colorreplace**: Replace a specific color in the image with another color.
 - **edgedetect**: Detect edges in the image.
+
+---
 
 ## Input Parameters
 
@@ -86,6 +92,8 @@ The plugin accepts the following parameters:
 }
 ```
 
+---
+
 ## Operation Examples
 
 ### resize Operation
@@ -101,6 +109,8 @@ The plugin accepts the following parameters:
 }
 ```
 
+---
+
 ### rotate Operation
 
 **Input Parameters:**
@@ -113,6 +123,8 @@ The plugin accepts the following parameters:
 }
 ```
 
+---
+
 ### grayscale Operation
 
 **Input Parameters:**
@@ -123,6 +135,8 @@ The plugin accepts the following parameters:
   "Data": "<base64-image>"
 }
 ```
+
+---
 
 ### watermark Operation
 
@@ -135,6 +149,8 @@ The plugin accepts the following parameters:
   "WatermarkText": "Confidential"
 }
 ```
+
+---
 
 ### colorreplace Operation
 
@@ -149,6 +165,8 @@ The plugin accepts the following parameters:
 }
 ```
 
+---
+
 ## Example Use Case in FlowSynx
 
 1. Add the Image Processing plugin to your FlowSynx workflow.
@@ -156,6 +174,8 @@ The plugin accepts the following parameters:
 3. Provide the image data as a base64 string or byte array in `Data`.
 4. Set any additional parameters required for the operation.
 5. Use the plugin output downstream in your workflow for further processing or storage.
+
+---
 
 ## Debugging Tips
 
@@ -167,11 +187,15 @@ The plugin accepts the following parameters:
 - For `colorreplace`, provide both `FromColor` and `ToColor` as RGBA objects.
 - If an unsupported operation is specified, an error will be returned.
 
+---
+
 ## Security Notes
 
 - No data is persisted unless explicitly configured.
 - All operations run in a secure sandbox within FlowSynx.
 - Only authorized platform users can view or modify configurations.
+
+---
 
 ## License
 
