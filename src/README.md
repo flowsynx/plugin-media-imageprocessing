@@ -57,8 +57,8 @@ The plugin accepts the following parameters:
   - `Amount` (float): For `brightness`/`contrast` operations.
   - `FlipMode` (string): For `flip` operation (`horizontal` or `vertical`).
   - `WatermarkText` (string): For `watermark` operation (text to overlay).
-  - `FromColor` (object): For `colorreplace` operation (color to replace, e.g., `{ "R": 255, "G": 0, "B": 0, "A": 255 }`).
-  - `ToColor` (object): For `colorreplace` operation (replacement color, same format as above).
+  - `FromColor` (string): For `colorreplace` operation (color to replace, as a string, e.g., "#FF0000FF" or "rgba(255,0,0,255)").
+  - `ToColor` (string): For `colorreplace` operation (replacement color, same format as above).
 
 ### Example input (resize)
 
@@ -87,8 +87,8 @@ The plugin accepts the following parameters:
 {
   "Operation": "colorreplace",
   "Data": "<base64-image>",
-  "FromColor": { "R": 255, "G": 0, "B": 0, "A": 255 },
-  "ToColor": { "R": 0, "G": 0, "B": 255, "A": 255 }
+  "FromColor": "255,0,0,255",
+  "ToColor": "0,0,255,255"
 }
 ```
 
@@ -160,8 +160,8 @@ The plugin accepts the following parameters:
 {
   "Operation": "colorreplace",
   "Data": "<base64-image>",
-  "FromColor": { "R": 255, "G": 0, "B": 0, "A": 255 },
-  "ToColor": { "R": 0, "G": 0, "B": 255, "A": 255 }
+  "FromColor": "rgba(255,0,0,255)",
+  "ToColor": "rgba(0,0,255,255)"
 }
 ```
 
@@ -184,7 +184,7 @@ The plugin accepts the following parameters:
 - For operations like `resize` or `crop`, both `Width` and `Height` are required.
 - For `flip`, set `FlipMode` to `horizontal` or `vertical`.
 - For `watermark`, provide `WatermarkText`.
-- For `colorreplace`, provide both `FromColor` and `ToColor` as RGBA objects.
+- For `colorreplace`, provide both `FromColor` and `ToColor` as strings (e.g., "rgba(255,0,0,255)" or "#FF0000FF").
 - If an unsupported operation is specified, an error will be returned.
 
 ---

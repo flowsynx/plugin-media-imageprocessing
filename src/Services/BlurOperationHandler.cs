@@ -8,7 +8,7 @@ internal class BlurOperationHandler : IImageOperationHandler
 {
     public void Handle(Image image, InputParameter parameter)
     {
-        float radius = parameter.Radius ?? 5f;
+        float radius = parameter.Radius != 0 ? parameter.Radius : 5f;
         image.Mutate(x => x.GaussianBlur(radius));
     }
 }

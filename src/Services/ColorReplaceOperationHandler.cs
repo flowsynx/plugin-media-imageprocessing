@@ -1,8 +1,8 @@
-﻿using System;
+﻿using FlowSynx.Plugins.Media.ImageProcessing.Helpers;
 using FlowSynx.Plugins.Media.ImageProcessing.Models;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
 
 namespace FlowSynx.Plugins.Media.ImageProcessing.Services
 {
@@ -10,11 +10,11 @@ namespace FlowSynx.Plugins.Media.ImageProcessing.Services
     {
         public void Handle(Image image, InputParameter parameter)
         {
-            if (!parameter.FromColor.HasValue || !parameter.ToColor.HasValue)
+            if (string.IsNullOrEmpty(parameter.FromColor) || string.IsNullOrEmpty(parameter.ToColor))
                 throw new ArgumentException("FromColor and ToColor are required.");
 
-            var fromColor = parameter.FromColor.Value;
-            var toColor = parameter.ToColor.Value;
+            var fromColor = ColorHelper.ParseToRgba32(parameter.FromColor);
+            var toColor = ColorHelper.ParseToRgba32(parameter.ToColor);
 
             // Convert to RGBA32 for pixel-level access
             image.Mutate(ctx =>

@@ -8,7 +8,7 @@ internal class SharpenOperationHandler : IImageOperationHandler
 {
     public void Handle(Image image, InputParameter parameter)
     {
-        float sigma = parameter.Radius ?? 3f;
+        float sigma = parameter.Radius != 0 ? parameter.Radius : 3f;
         image.Mutate(x => x.GaussianSharpen(sigma));
     }
 }

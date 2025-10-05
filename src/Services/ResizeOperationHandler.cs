@@ -8,8 +8,9 @@ internal class ResizeOperationHandler : IImageOperationHandler
 {
     public void Handle(Image image, InputParameter parameter)
     {
-        if (!parameter.Width.HasValue || !parameter.Height.HasValue)
-            throw new ArgumentException("Resize requires Width and Height.");
-        image.Mutate(x => x.Resize(parameter.Width.Value, parameter.Height.Value));
+        if (parameter.Width <= 0 || parameter.Height <= 0)
+            throw new ArgumentException("Resize requires positive Width and Height.");
+
+        image.Mutate(x => x.Resize(parameter.Width, parameter.Height));
     }
 }

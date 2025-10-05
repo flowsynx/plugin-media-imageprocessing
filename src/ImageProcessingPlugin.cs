@@ -140,14 +140,17 @@ public class ImageProcessingPlugin : IPlugin
         };
     }
 
-    private async Task<Image> LoadImageAsync(PluginContext context, CancellationToken cancellationToken)
+    private static async Task<Image> LoadImageAsync(PluginContext context, CancellationToken cancellationToken)
     {
-        if (context.Content is null)
-            throw new InvalidDataException($"Image content is missing in PluginContext {context.Id}.");
+        ArgumentNullException.ThrowIfNull(context);
 
-        var bytes = Convert.FromBase64String(context.Content);
-        var ms = new MemoryStream(bytes);
-        return await Image.LoadAsync(ms, cancellationToken);
+        byte[] bytes = context.RawData
+            ?? (context.Content is not null
+                ? Convert.FromBase64String(context.Content)
+                : throw new InvalidDataException($"Image content is missing in PluginContext {context.Id}."));
+
+        await using var ms = new MemoryStream(bytes, writable: false);
+        return await Image.LoadAsync(ms, cancellationToken).ConfigureAwait(false);
     }
     #endregion
 }

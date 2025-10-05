@@ -8,7 +8,7 @@ internal class ContrastOperationHandler : IImageOperationHandler
 {
     public void Handle(Image image, InputParameter parameter)
     {
-        float amount = parameter.Amount ?? 1f;
+        float amount = parameter.Amount != 0 ? parameter.Amount : 1f;
         image.Mutate(x => x.Contrast(amount));
     }
 }
