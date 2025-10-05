@@ -12,10 +12,10 @@ internal class WatermarkOperationHandler : IImageOperationHandler
 {
     public void Handle(Image image, InputParameter parameter)
     {
-        if (string.IsNullOrWhiteSpace(parameter.WatermarkText))
+        if (string.IsNullOrWhiteSpace(parameter.Text))
             throw new ArgumentException("WatermarkText must not be empty.");
 
-        if (parameter.WatermarkFontSize <= 0)
+        if (parameter.FontSize <= 0)
             throw new ArgumentException("Watermark font size must be greater than zero.");
 
         if (parameter.Top < 0)
@@ -26,19 +26,19 @@ internal class WatermarkOperationHandler : IImageOperationHandler
 
 
         Font font;
-        if (string.IsNullOrWhiteSpace(parameter.WatermarkFontName))
+        if (string.IsNullOrWhiteSpace(parameter.FontName))
         {
             // Use embedded font as default
-            font = LoadEmbeddedFont("FlowSynx.Plugins.Media.ImageProcessing.Fonts.DejaVuSerif.ttf", parameter.WatermarkFontSize);
+            font = LoadEmbeddedFont("FlowSynx.Plugins.Media.ImageProcessing.Fonts.DejaVuSerif.ttf", parameter.FontSize);
         }
         else
         {
-            font = SystemFonts.CreateFont(parameter.WatermarkFontName, parameter.WatermarkFontSize);
+            font = SystemFonts.CreateFont(parameter.FontName, parameter.FontSize);
         }
 
-        image.Mutate(x => x.DrawText(parameter.WatermarkText,
+        image.Mutate(x => x.DrawText(parameter.Text,
                                      font,
-                                     ColorHelper.ParseToRgba32(parameter.WatermarkColor),
+                                     ColorHelper.ParseToRgba32(parameter.FontColor),
                                      new PointF(parameter.Left, parameter.Top)));
     }
 

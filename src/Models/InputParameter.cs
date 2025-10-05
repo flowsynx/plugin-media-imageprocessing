@@ -28,10 +28,10 @@ internal class InputParameter
     public string FlipMode { get; set; } = string.Empty; // "horizontal", "vertical"
 
     // Watermark
-    public string WatermarkText { get; set; } = string.Empty;
-    public string WatermarkFontName { get; set; } = string.Empty;
-    public int WatermarkFontSize { get; set; } = 24;
-    public string WatermarkColor { get; set; } = "#FFFFFF";
+    public string Text { get; set; } = string.Empty;
+    public string FontName { get; set; } = string.Empty;
+    public int FontSize { get; set; } = 24;
+    public string FontColor { get; set; } = "#FFFFFF";
 
     public string FromColor { get; set; } = string.Empty;
     public string ToColor { get; set; } = string.Empty;

@@ -52,11 +52,16 @@ The plugin accepts the following parameters:
 - Operation-specific parameters (optional):
   - `Width` (int): For `resize`/`crop` operations.
   - `Height` (int): For `resize`/`crop` operations.
+  - `Top` (int): For `crop`/`watermark` operations. Default: 10.
+  - `Left` (int): For `crop`/`watermark` operations. Default: 10.
   - `Angle` (float): For `rotate` operation.
   - `Radius` (float): For `blur`/`sharpen` operations.
   - `Amount` (float): For `brightness`/`contrast` operations.
   - `FlipMode` (string): For `flip` operation (`horizontal` or `vertical`).
-  - `WatermarkText` (string): For `watermark` operation (text to overlay).
+  - `Text` (string): For `watermark` operation (text to overlay).
+  - `FontName` (string): For `watermark` operation (font name for watermark text).
+  - `FontSize` (int): For `watermark` operation (font size for watermark text). Default: 24.
+  - `FontColor` (string): For `watermark` operation (color for watermark text, e.g., "#FFFFFF").
   - `FromColor` (string): For `colorreplace` operation (color to replace, as a string, e.g., "#FF0000FF" or "rgba(255,0,0,255)").
   - `ToColor` (string): For `colorreplace` operation (replacement color, same format as above).
 
@@ -77,7 +82,12 @@ The plugin accepts the following parameters:
 {
   "Operation": "watermark",
   "Data": "<base64-image>",
-  "WatermarkText": "Sample watermark"
+  "Text": "Sample watermark",
+  "FontName": "Arial",
+  "FontSize": 32,
+  "FontColor": "#FF0000",
+  "Top": 20,
+  "Left": 20
 }
 ```
 
@@ -146,7 +156,12 @@ The plugin accepts the following parameters:
 {
   "Operation": "watermark",
   "Data": "<base64-image>",
-  "WatermarkText": "Confidential"
+  "Text": "Confidential",
+  "FontName": "Arial",
+  "FontSize": 24,
+  "FontColor": "#FFFFFF",
+  "Top": 10,
+  "Left": 10
 }
 ```
 
@@ -183,7 +198,7 @@ The plugin accepts the following parameters:
 - Provide all required parameters for the selected operation.
 - For operations like `resize` or `crop`, both `Width` and `Height` are required.
 - For `flip`, set `FlipMode` to `horizontal` or `vertical`.
-- For `watermark`, provide `WatermarkText`.
+- For `watermark`, provide `Text`, and optionally `FontName`, `FontSize`, `FontColor`, `Top`, and `Left`.
 - For `colorreplace`, provide both `FromColor` and `ToColor` as strings (e.g., "rgba(255,0,0,255)" or "#FF0000FF").
 - If an unsupported operation is specified, an error will be returned.
 
