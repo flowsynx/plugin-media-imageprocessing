@@ -28,7 +28,7 @@ public class ImageProcessingPlugin : IPlugin
         Name = "ImageProcessing",
         CompanyName = "FlowSynx",
         Description = "Performs image processing operations like resize, rotate, grayscale, crop, etc.",
-        Version = new Version(1, 0, 0),
+        Version = new Version(1, 1, 0),
         Category = PluginCategory.Media,
         Authors = new List<string> { "FlowSynx" },
         Copyright = "© FlowSynx",

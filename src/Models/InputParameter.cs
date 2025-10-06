@@ -12,8 +12,8 @@ internal class InputParameter
     public int Height { get; set; }
 
     // Crop / Watermark
-    public int Top { get; set; } = 10;
-    public int Left { get; set; } = 10;
+    public int Top { get; set; } = 0;
+    public int Left { get; set; } = 0;
 
     // Rotate
     public float Angle { get; set; }
